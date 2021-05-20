@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+$DarkGray: hsl(217, 19%, 35%);
+$DesaturatedBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+$LightGrayishBlue: hsl(210, 46%, 95%);
+
+@keyframes popInFromSmall {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes popOutFromBig {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+}
+body {
+  background-color: $LightGrayishBlue;
+}
+.container {
+  padding: 5em 1.5em;
+}
+.card {
+  background-color: white;
+  border-radius: 15px;
+
+  .card-img {
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 200px;
+      border-radius: 15px 15px 0 0;
+    }
+  }
+  .card-content {
+    padding: 2em 2em 1em;
+
+    .card-title {
+      color: $DarkGray;
+      font-size: 1rem;
+      margin-bottom: 1em;
+    }
+    .card-subtitle {
+      font-size: 0.83rem;
+    }
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em 1em 2em;
+
+    .card-avatar {
+      img {
+        border-radius: 50%;
+        width: 40px;
+      }
+    }
+    .card-footer-text {
+      flex: 1;
+      padding-left: 1em;
+      .username {
+        color: $DarkGray;
+        font-weight: 700;
+      }
+      .date {
+        color: $GrayishBlue;
+      }
+    }
+    .share-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: $LightGrayishBlue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    .card-share {
+      display: none;
+      position: absolute;
+      background-color: $DesaturatedBlue;
+      width: calc(100% - 4em);
+      padding: 2em;
+      border-radius: 0 0 15px 15px;
+      bottom: 0;
+      left: 0;
+      letter-spacing: 0.4em;
+      color: $GrayishBlue;
+      font-size: 0.9rem;
+      animation: 0.25s ease-in 0s 1 popInFromSmall;
+      //   display: flex;
+      .icon-group {
+        padding-left: 1em;
+        display: grid;
+        grid-template-columns: 35px 35px 35px;
+
+        img {
+          transition: all 0.25s ease-in;
+          &:hover {
+            transform: scale(1.4);
+          }
+        }
+      }
+    }
+    &.share-active {
+      .card-share {
+        display: flex;
+      }
+      .share-icon {
+        background-color: $GrayishBlue;
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}
