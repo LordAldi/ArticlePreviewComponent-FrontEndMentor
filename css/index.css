@@ -64,6 +64,22 @@ body {
   padding: 5em 1.5em;
 }
 
+@media (min-width: 768px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100vh;
+    padding: 0;
+  }
+}
+
 .card {
   background-color: white;
   border-radius: 15px;
@@ -195,5 +211,101 @@ body {
 
 .card .card-footer.share-active .share-icon svg path {
   fill: white;
+}
+
+@media (min-width: 768px) {
+  .card {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 35% 65%;
+        grid-template-columns: 35% 65%;
+    min-height: 350px;
+    max-width: 950px;
+  }
+  .card .card-img {
+    height: 100%;
+  }
+  .card .card-img img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 15px 0 0 15px;
+  }
+  .card .card-content {
+    padding: 3em 3em 1em;
+  }
+  .card .card-content .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1em;
+  }
+  .card .card-content .card-subtitle {
+    font-size: 1.2rem;
+  }
+  .card .card-footer {
+    padding: 1em 3em 2em 3em;
+  }
+  .card .card-footer .card-avatar img {
+    border-radius: 50%;
+    width: 60px;
+  }
+  .card .card-footer .card-footer-text {
+    padding-left: 1.3em;
+  }
+  .card .card-footer .card-footer-text .username {
+    font-size: 1.2rem;
+  }
+  .card .card-footer .card-footer-text .date {
+    font-size: 1.1rem;
+  }
+  .card .card-footer .card-share {
+    display: none;
+    position: absolute;
+    width: 240px;
+    border-radius: 15px;
+    left: auto;
+    padding: 1em 1.5em;
+    right: -10px;
+    bottom: 7em;
+  }
+  .card .card-footer .card-share .icon-group {
+    padding-left: 1em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 35px 35px 35px;
+        grid-template-columns: 35px 35px 35px;
+  }
+  .card .card-footer .card-share .icon-group img {
+    -webkit-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+  }
+  .card .card-footer .card-share .icon-group img:hover {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  .card .card-footer .card-share::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 99%;
+    right: 4.5em;
+    border: 0.75rem solid transparent;
+    border-bottom: none;
+    border-top-color: #6d7f97;
+  }
+  .card .card-footer.share-active .card-share {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .card .card-footer.share-active .share-icon {
+    background-color: #9eafc2;
+  }
+  .card .card-footer.share-active .share-icon svg path {
+    fill: white;
+  }
 }
 /*# sourceMappingURL=index.css.map */
